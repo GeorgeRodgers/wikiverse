@@ -6,6 +6,7 @@ import apiURL from '../api'
 
 export const App = () => {
   const [pages, setPages] = useState([])
+  const [pageId, setPageId] = useState(`home`)
 
   useEffect(() => {
     async function fetchPages () {
@@ -23,11 +24,11 @@ export const App = () => {
 
   return (
 		<main>
-      <h1>WikiVerse</h1>
+      <h1 onClick={() => setPageId(`home`)}>WikiVerse</h1>
       <br></br>
 			<h2>An interesting 📚</h2>
       <br></br>
-			<PagesList pages={pages} />
+			<PagesList pages={pages} pageId={pageId} setPageId={setPageId} />
 		</main>
   )
 }
