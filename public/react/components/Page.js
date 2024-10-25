@@ -14,10 +14,13 @@ export const Page = ({page, pageId, setPageId}) => {
       setAuthor(data.author.name)
       setTags(data.tags.map(tag => tag.name))
     }
+    useEffect(() => {
+      getSlug()
+    }, [])
     
-    getSlug()
 
-    return <>
+    return (
+    <>
       <h3>{page.title}</h3>
       <br></br>
       <p><strong>Author: </strong>{author}</p>
@@ -25,10 +28,11 @@ export const Page = ({page, pageId, setPageId}) => {
       <p><strong>Post:</strong></p>
       <p>{page.content}</p>
       <p><strong>Tags:</strong></p>
-      {tags.map(tag => <p>#{tag}</p>)}
+      {tags.map((tag, idx) => <p key={idx} >#{tag}</p>)}
       <br></br>
       <button onClick={() => setPageId('home')}>Back to Wiki List</button>
-      
+      <br></br>
     </>
+    )
   }
 }
