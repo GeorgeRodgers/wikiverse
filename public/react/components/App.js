@@ -24,7 +24,9 @@ export const App = () => {
   return (
 		<main>
       <h1>WikiVerse</h1>
+      <br></br>
 			<h2>An interesting 📚</h2>
+      <br></br>
 			<PagesList pages={pages} />
 		</main>
   )
