@@ -20,7 +20,7 @@ export const App = () => {
     }
 
     fetchPages()
-  }, [])
+  }, [pageId])
 
   return (
 		<main>

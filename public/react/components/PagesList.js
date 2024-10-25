@@ -5,7 +5,7 @@ import {AddPage} from './AddPage'
 export const PagesList = ({ pages, pageId, setPageId }) => {
 	if (pageId === `home`){
 		return (
-		<>{pages.map((page, idx) => {return <h3 onClick={() => setPageId(idx + 1)} key={idx} >{page.title}</h3>})}
+		<>{pages.map((page, idx) => {return <h3 onClick={() => setPageId(page.id)} key={page.id} >{page.title}</h3>})}
 		<br></br>
 		<button onClick={() => setPageId(`add`)}>Create New Page</button>
 		</>)
@@ -19,7 +19,5 @@ export const PagesList = ({ pages, pageId, setPageId }) => {
 	else {
 		return (
 		<>{pages.map((page, idx) => {return <Page page={page} key={idx} pageId={pageId} setPageId={setPageId} />})}
-		<br></br>
-		<button onClick={() => setPageId(`add`)}>Create New Page</button>
 		</>)}
 }

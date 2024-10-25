@@ -18,6 +18,12 @@ export const Page = ({page, pageId, setPageId}) => {
       getSlug()
     }, [])
     
+    async function deletePage(){
+      const res = await fetch(`${apiURL}/wiki/${page.slug}`, {
+        method: "DELETE"
+      });
+      setPageId('home')
+    }
 
     return (
     <>
@@ -31,6 +37,7 @@ export const Page = ({page, pageId, setPageId}) => {
       {tags.map((tag, idx) => <p key={idx} >#{tag}</p>)}
       <br></br>
       <button onClick={() => setPageId('home')}>Back to Wiki List</button>
+      <button onClick={deletePage}>Delete Page</button>
       <br></br>
     </>
     )
